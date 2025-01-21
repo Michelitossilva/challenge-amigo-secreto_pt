@@ -1,14 +1,18 @@
+/* Variáveis de cores e fontes */
 :root {
-    --color-primary: #4B69FD;
-    --color-secondary: #FFF9EB;
-    --color-tertiary: #C4C4C4;
-    --color-button: #fe652b;
-    --color-button-hover: #e55720;
-    --color-text: #444444;
-    --color-white: #FFFFFF;
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --border-color: #bdc3c7;
+    --success-color: #27ae60;
+    --warning-color: #f1c40f;
+    --font-title: 'Merriweather', serif;
+    --font-body: 'Inter', sans-serif;
 }
 
-/* Estilos gerais */
+/* Reset e estilos base */
 * {
     margin: 0;
     padding: 0;
@@ -16,147 +20,244 @@
 }
 
 body {
-    height: 100vh;
-    background-color: var(--color-primary);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: var(--font-body);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
+/* Container principal */
 .main-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-/* Banner */
+/* Header e Banner */
 .header-banner {
-    flex: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0 0;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-/* Seção de entrada */
-.input-section {
-    flex: 60%;
-    background-color: var(--color-secondary);
-    border: 1px solid #000;
-    border-radius: 64px 64px 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
+.header-banner img {
+    max-width: 200px;
+    margin-top: 1rem;
 }
 
-/* Títulos */
 .main-title {
-    font-size: 48px;
-    font-family: "Merriweather", serif;
-    font-weight: 900;
-    font-style: italic;
-    color: var(--color-white);
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Seção de entrada de dados */
+.input-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .section-title {
-    font-family: "Inter", serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin: 10px 0;
-    text-align: center;
+    font-family: var(--font-title);
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
 }
 
-/* Contêineres de entrada e botão */
+/* Formulário */
+.form-container {
+    margin-bottom: 2rem;
+}
+
 .input-wrapper {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.input-name {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #000;
-    border-radius: 25px 0 0 25px;
-    font-size: 16px;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.input-name,
+.input-email {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-name:focus,
+.input-email:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+/* Botões e ícones */
+.material-icons {
+    font-size: 20px !important;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
 .button-container {
-    width: 300px;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.button-add,
+.button-draw,
+.button-clear {
+    display: flex;
+    align-items: center;
     justify-content: center;
-}
-
-/* Estilos de entrada de texto */
-.input-title {
-    flex: 1;
-    padding: 10px 15px;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
-    border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Estilos de botão */
-button {
-    padding: 15px 30px;
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    border: 2px solid #000;
-    border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .button-add {
-    background-color: var(--color-tertiary);
-    color: var(--color-text);
-    border-radius: 0 25px 25px 0;
+    background-color: var(--secondary-color);
+    color: white;
+    width: 100%;
 }
 
-.button-add:hover {
-    background-color: #a1a1a1;
+.button-draw {
+    background-color: var(--success-color);
+    color: white;
+    flex: 1;
 }
 
-/* Listas */
-ul {
-    list-style-type: none;
-    color: var(--color-text);
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    margin: 20px 0;
+.button-clear {
+    background-color: var(--accent-color);
+    color: white;
+    flex: 1;
+}
+
+.button-add:hover,
+.button-draw:hover,
+.button-clear:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Lista de participantes */
+.participants-container {
+    margin: 2rem 0;
+}
+
+.name-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.name-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.botao-excluir {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Resultado e mensagens */
+.result-container {
+    margin-top: 1.5rem;
 }
 
 .result-list {
-    margin-top: 15px;
-    color: #05DF05;
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
+    list-style: none;
+    color: var(--success-color);
+    font-weight: 500;
 }
 
-/* Botão de sortear título */
-.button-draw {
-    display: flex;
-    align-items: center;
+/* Instruções */
+.instructions {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #fff3cd;
+    border-radius: 5px;
+    border-left: 4px solid var(--warning-color);
+}
+
+.instructions p {
+    margin-bottom: 0.5rem;
+    color: #856404;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 10px 40px;
-    color: var(--color-white);
-    background-color: var(--color-button);
-    font-size: 16px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
-.button-draw img {
-    margin-right: 40px;
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-.button-draw:hover {
-    background-color: var(--color-button-hover);
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .button-container {
+        flex-direction: column;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .header-banner img {
+        max-width: 150px;
+    }
 }
